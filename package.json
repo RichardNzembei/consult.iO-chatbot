@@ -5,11 +5,14 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "start": "nuxt start",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/ui": "^2.19.2",
+    "dotenv": "^16.4.5",
     "nuxt": "^3.14.1592",
     "vue": "latest",
     "vue-router": "latest"
