@@ -28,18 +28,15 @@
 import { ref } from 'vue'
 
 const messages = ref([
-    { sender: 'bot', text: 'Hi! I am your farm consultation chatbot. How can I help you today?' }
+    { sender: 'bot', text: 'Hello! I’m your farm consultation assistant. How can I assist you today?' }
 ])
-
 
 const userInput = ref('')
 
 const sendMessage = () => {
     if (userInput.value.trim() === '') return
 
-
     messages.value.push({ sender: 'user', text: userInput.value })
-
 
     const response = getBotResponse(userInput.value)
     messages.value.push({ sender: 'bot', text: response })
@@ -47,22 +44,60 @@ const sendMessage = () => {
     userInput.value = ''
 }
 
-
 const getBotResponse = (input) => {
     const lowerInput = input.toLowerCase()
 
-    if (lowerInput.includes('fertilizer')) {
-        return 'For optimal results, use organic fertilizers like compost or manure.'
-    } else if (lowerInput.includes('pest')) {
-        return 'For pest control, you can use neem oil or natural predators like ladybugs.'
-    } else if (lowerInput.includes('soil')) {
-        return 'Healthy soil is key! Perform a soil test and add nutrients as needed.'
-    } else if (lowerInput.includes('water')) {
-        return 'Ensure regular watering early in the morning to minimize evaporation.'
-    } else {
-        return "I'm not sure about that. Can you rephrase your question?"
+    // Greeting responses
+    if (lowerInput.includes('hi') || lowerInput.includes('hello')) {
+        return 'Hi there! What can I help you with today?'
     }
+
+    // Planting suggestions (for season-related questions)
+    if (
+        lowerInput.includes('plant') ||
+        lowerInput.includes('what should i plant') ||
+        lowerInput.includes('what should i grow') ||
+        lowerInput.includes('this season') ||
+        lowerInput.includes('seasonal crops') ||
+        lowerInput.includes('recommend crops') ||
+        lowerInput.includes('grow this season')
+    ) {
+        return 'I can suggest various crops depending on your climate and soil conditions. Can you tell me a bit about your climate and soil conditions?'
+    }
+
+    // Dry climate and sandy soil response
+    if (lowerInput.includes('dry') && lowerInput.includes('sandy soil')) {
+        return 'In dry and sandy areas, you can plant drought-tolerant crops like sorghum, millet, or beans. Would you like more details on any of these?'
+    }
+
+    // Millet care advice
+    if (lowerInput.includes('millet')) {
+        return 'Millet is drought-resistant and thrives in sandy soils. It needs minimal water and full sunlight. Water it deeply every 10-14 days. Would you like to know about fertilizers for millet?'
+    }
+
+    // Fertilizer advice
+    if (lowerInput.includes('fertilizer')) {
+        return 'Millet responds well to organic fertilizers like compost or manure. You can also use balanced granular fertilizers. Just don’t over-fertilize. Need help with pest control or irrigation?'
+    }
+
+    // Pest control advice
+    if (lowerInput.includes('pest')) {
+        return 'Common pests for millet include aphids and grasshoppers. You can use natural predators like ladybugs or neem oil. Regularly check your crops for pests. Would you like more tips on natural pest control?'
+    }
+
+    // Farewell messages
+    if (lowerInput.includes('thank you') || lowerInput.includes('thanks')) {
+        return 'You’re welcome! Feel free to ask anytime. Good luck with your farm!'
+    }
+
+    if (lowerInput.includes('goodbye') || lowerInput.includes('bye')) {
+        return 'Goodbye! Have a great day, and happy farming!'
+    }
+
+    // Default fallback
+    return "I’m not sure about that. Could you try asking something else or provide more details?"
 }
+
 </script>
 
 <style scoped>
