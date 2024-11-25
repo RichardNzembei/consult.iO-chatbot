@@ -35,29 +35,29 @@ Follow these steps to run the project locally:
    cd consult.iO-chatbot
 
 2. Install dependencies:
-  ```bash
- npm install
+   ```bash
+   npm install
 
 3. Start the development server:
-  ```bash
-  npm run dev
+   ```bash
+   npm run dev
 
 4. Access the chatbot at:
-http://localhost:3000
+   http://localhost:3000
 
 
 
 ## 🐳 Running with Docker
 1. Build the Docker image:
-  ```bash
- docker build -t farmer-consult-bot .
+   ```bash
+   docker build -t farmer-consult-bot .
 
 2. Run the Docker container:
-  ```bash
-  docker run -d -p 3000:3000 farmer-consult-bot
+   ```bash
+    run -d -p 3000:3000 farmer-consult-bot
 
 3. Visit the application in your browser at:
-http://localhost:3000
+   http://localhost:3000
 
 ## 🧩 Dialogflow Integration
 This chatbot uses Dialogflow for natural language understanding:
