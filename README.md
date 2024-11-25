@@ -35,42 +35,28 @@ Follow these steps to run the project locally:
    cd consult.iO-chatbot
 
 2. Install dependencies:
-
-bash
-Copy code
-npm install
+  ```bash
+ npm install
 
 3. Start the development server:
-
-bash
-Copy code
-npm run dev
+  ```bash
+  npm run dev
 
 4. Access the chatbot at:
-
-arduino
-Copy code
 http://localhost:3000
 
 
 
 ## 🐳 Running with Docker
 1. Build the Docker image:
-
-bash
-Copy code
-docker build -t farmer-consult-bot .
+  ```bash
+ docker build -t farmer-consult-bot .
 
 2. Run the Docker container:
-
-bash
-Copy code
-docker run -d -p 3000:3000 farmer-consult-bot
+  ```bash
+  docker run -d -p 3000:3000 farmer-consult-bot
 
 3. Visit the application in your browser at:
-
-arduino
-Copy code
 http://localhost:3000
 
 ## 🧩 Dialogflow Integration
@@ -80,10 +66,8 @@ Set up a Dialogflow agent and configure intents based on farmer queries.
 Generate a service account key for the Dialogflow project.
 Add the key to your project by creating a .env file with the following:
 javascript
-
-Copy code
-DIALOGFLOW_PROJECT_ID=your-project-id
-GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account-key.json
+ DIALOGFLOW_PROJECT_ID=your-project-id
+ GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account-key.json
 Ensure the service account key is mounted in your Docker container if you're using Docker.
 
 ## 🌐 Deployment
@@ -114,6 +98,7 @@ bash
 Copy code
 git push origin feature/your-feature-name
 Create a pull request.
+
 ## 📜 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
