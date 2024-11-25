@@ -65,9 +65,10 @@ This chatbot uses Dialogflow for natural language understanding:
 Set up a Dialogflow agent and configure intents based on farmer queries.
 Generate a service account key for the Dialogflow project.
 Add the key to your project by creating a .env file with the following:
-javascript
- DIALOGFLOW_PROJECT_ID=your-project-id
- GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account-key.json
+ ```javascript
+    DIALOGFLOW_PROJECT_ID=your-project-id
+    GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account-key.json
+   ```
 Ensure the service account key is mounted in your Docker container if you're using Docker.
 
 ## 🌐 Deployment
